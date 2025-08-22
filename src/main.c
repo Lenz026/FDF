@@ -1,9 +1,14 @@
-#include <raylib.h>
 #include "../include/fdf.h"
 
+//PATH R:REPO rebuilds/FDF/map.fdf
+
 int main(int argc, char **argv){
+
+
     t_env *env;
     
+    open_file();
+
     env = init_env();
     InitWindow(env->width, env->height, "Ridge FDF rebuild - Raylib");
     
@@ -17,7 +22,10 @@ int main(int argc, char **argv){
             Example:
             DrawLine(100, 100, 200, 100, RED);
             */
-        DrawText("Hello, FDF with Raylib!", 350, 200, 20, WHITE);
+        open_file();
+        draw_grid(env);
+
+        // DrawText("Hello, FDF with Raylib!", 350, 200, 20, WHITE);
         EndDrawing();
     }
     CloseWindow();
